@@ -1,16 +1,15 @@
 let player; ia
 const iaRandom = document.getElementById('ia')
-// const signImg = document.getElementsById('sign')
+const signImg = document.getElementById('playerImg')
 
-let 1 = document.get
+// let 1 = document.get
 
 // Choix du joueur
 const playerChoice = (choice) => {
     player = choice
+    signImg.innerHTML = `<img src="img/${playerImg}.jpg" alt="" id="signImg">`
     // console.log("I clicked on my button")
     iaChoice()
-
-    // signImg.innerHTML = `<img src="img/${sign}.jpg" alt="" id="signImg">`
 
 }
 
@@ -23,6 +22,8 @@ const iaChoice = (choice) => {
 
     iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
 
+    result()
+
     // setInterval(function() {
     //     iaRandom.innerHTML += 1
     //     }, 1000);
@@ -33,11 +34,11 @@ const iaChoice = (choice) => {
 // Déterminer le vainqueur
 const result = () => {
     if((player === 1 && ia === 3) || (player === 3 && ia === 2) || (player === 2 && ia === 1)) {
-        // player wins 
+        console.log("Vous avez gagné !") 
     }else if((player === 3 && ia === 1) || (player === 2 && ia === 3) || (player === 1 && ia === 2)) {
-        // ia wins
+        console.log("Vous avez perdu")
     }else {
-        // match nul
+        console.log("Match nul")
     }
 }
 
