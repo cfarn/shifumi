@@ -13,10 +13,13 @@
         <!-- aire de jeu -->
         <article class="gameArea">
             <!-- section ia -->
-            <section id="ia">
-                <h3 id="iaChoice">IA</h3>
-                <img src="" alt="" id="iaRandom">
+            <section>
+                <h3>IA</h3>
+                <div  id="ia">
+                    <img src="" alt="" id="iaRandom">
+                </div>
             </section>
+            <!-- section résultats -->
             <section id="gameResult">
                 <h3>Résultat</h3>
                 <h5 id="resultDisplay"></h5>
@@ -28,9 +31,9 @@
                     <img src="" alt="" id="signImg">
                 </div>
                 <div class="btns">
-                    <button id="stone" onclick="playerChoice(player)">Pierre</button>
-                    <button id="paper" onclick="playerChoice(player)">Papier</button>
-                    <button id="scissors" onclick="playerChoice(player)">Ciseaux</button>
+                    <button id="stone" onclick="playerChoice('stone')">Pierre</button>
+                    <button id="paper" onclick="playerChoice('paper')">Papier</button>
+                    <button id="scissors" onclick="playerChoice('scissors')">Ciseaux</button>
                 </div>
             </section>
         </article>
