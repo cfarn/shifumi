@@ -5,21 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shifumi</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <h1>SHIFUMI</h1>
-    <section id="ia">
-        <img src="" alt="" id="iaRandom">
-    </section>
-
-    <section id="sign" class="sign">
-        <div id="playerImg">
-            <img src="" alt="" id="signImg">
-        </div>
-        <button id="stone" onclick="playerChoice(player)">Pierre</button>
-        <button id="paper" onclick="playerChoice(player)">Papier</button>
-        <button id="scissors" onclick="playerChoice(player)">Ciseaux</button>
-    </section>
+    <main class="content">
+        <h1>SHIFUMI</h1>
+        <!-- aire de jeu -->
+        <article class="gameArea">
+            <!-- section ia -->
+            <section id="ia">
+                <h3 id="iaChoice">IA</h3>
+                <img src="" alt="" id="iaRandom">
+            </section>
+            <section id="gameResult">
+                <h3>Résultat</h3>
+                <h5 id="resultDisplay"></h5>
+            </section>
+            <!-- section joueur -->
+            <section id="sign" class="sign">
+                <h3 id="pChoice">Joueur</h3>
+                <div id="playerImg">
+                    <img src="" alt="" id="signImg">
+                </div>
+                <div class="btns">
+                    <button id="stone" onclick="playerChoice(player)">Pierre</button>
+                    <button id="paper" onclick="playerChoice(player)">Papier</button>
+                    <button id="scissors" onclick="playerChoice(player)">Ciseaux</button>
+                </div>
+            </section>
+        </article>
+    </main>
 
 
     <script src="js/index.js"></script>

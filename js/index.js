@@ -1,12 +1,13 @@
 let player; ia
+
 const iaRandom = document.getElementById('ia')
 const signImg = document.getElementById('playerImg')
-
-// let 1 = document.get
+const resultDisplay = document.getElementById('gameResult')
 
 // Choix du joueur
 const playerChoice = (choice) => {
     player = choice
+    // image du choix
     signImg.innerHTML = `<img src="img/${playerImg}.jpg" alt="" id="signImg">`
     // console.log("I clicked on my button")
     iaChoice()
@@ -15,14 +16,17 @@ const playerChoice = (choice) => {
 
 // Choix de l'IA
 const iaChoice = (choice) => {
+    // génération aléatoire de 1 à 3
     const min = 1
     const max = 3
     choice = Math.floor(Math.random() * max) + min
+
     ia = choice
 
+    // image du choix
     iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
 
-    result()
+    winner()
 
     // setInterval(function() {
     //     iaRandom.innerHTML += 1
@@ -32,15 +36,22 @@ const iaChoice = (choice) => {
 }
 
 // Déterminer le vainqueur
-const result = () => {
-    if((player === 1 && ia === 3) || (player === 3 && ia === 2) || (player === 2 && ia === 1)) {
+const winner = () => {
+    
+    if((player === "stone" && ia === "scissors") || (player === "scissors" && ia === "paper") || (player === "paper" && ia === "stone")) {
         console.log("Vous avez gagné !") 
-    }else if((player === 3 && ia === 1) || (player === 2 && ia === 3) || (player === 1 && ia === 2)) {
+        // result = "Vous avez gagné !"
+    }else if((player === "scissors" && ia === "stone") || (player === "paper" && ia === "scissors") || (player === "stone" && ia === "paper")) {
         console.log("Vous avez perdu")
-    }else {
+        // result = "Vous avez perdu"
+    }else if(player === ia) {
         console.log("Match nul")
+        // result = "Match nul"
     }
+    // afficher le résultat
+    // gameResult.innerHTML = result
 }
+
 
 
 
