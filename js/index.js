@@ -17,10 +17,10 @@ const playerChoice = (choice) => {
     }
     // image du choix
     signImg.innerHTML = `<img src="img/${img}.jpg" alt="" id="signImg">`
-    console.log(playerImg)
-    // console.log("I clicked on my button")
+    // console.log(playerImg)
+    
+    // afficher le choix de l'IA
     iaChoice()
-
 }
 
 // Choix de l'IA
@@ -40,34 +40,48 @@ const iaChoice = (choice) => {
     }
 
     // image du choix
+    // setInterval()
     iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
 
-    winner()
+    // défilement des images aléatoires avant le choix
+    // let f = () => {
+    //     iaRandom = 0
+    //     iaRandom += 1
+    //     iaRandom.setAttribute(`<img src="img/${ia}.jpg" alt="" id="iaRandom">`)
+    //     if(iaRandom == 3) {
+    //         iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
+    //     }
+    // }
+    // window.setInterval('f()', 800)
 
     // setInterval(function() {
-    //     iaRandom.innerHTML += 1
-    //     }, 1000);
+    //     iaRandom.innerHTML += `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
+    // }, 1000);
 
 
+
+    // afficher le vainqueur
+    winner()
 }
 
 // Déterminer le vainqueur
 const winner = () => {
     if((player === "stone" && iaTxt === "scissors") || (player === "scissors" && iaTxt === "paper") || (player === "paper" && iaTxt === "stone")) {
-        console.log("Vous avez gagné !") 
+        // console.log("Vous avez gagné !") 
         result = "Vous avez gagné !"
+        // document.getElementById("border").style.border = "solid 3px red";
     }else if((player === "scissors" && iaTxt === "stone") || (player === "paper" && iaTxt === "scissors") || (player === "stone" && iaTxt === "paper")) {
-        console.log("Vous avez perdu")
-        result = "Vous avez perdu"
+        // console.log("L'IA a gagné")
+        result = "Vous avez perdu !"
     }else if(player === iaTxt) {
-        console.log("Match nul")
+        // console.log("Match nul")
         result = "Match nul"
     }
     // afficher le résultat
     gameResult.innerHTML = result
 }
 
-
+// afficher le score
 
 
 
