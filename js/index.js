@@ -1,8 +1,18 @@
+// variables
 let player, ia, iaTxt
+let round = 0
+let playerScore = 0
+let iaScore = 0
 
+// elements
 const iaRandom = document.getElementById('ia')
 const signImg = document.getElementById('playerImg')
 const resultDisplay = document.getElementById('gameResult')
+const playerScoreDOM = document.getElementById("playerScore")
+const iaScoreDOM = document.getElementById("iaScore")
+const gameHistory = document.getElementById("gameHistory")
+const empty = document.getElementById("empty")
+const gameAera = document.getElementById("gameAera")
 
 // Choix du joueur
 const playerChoice = (choice) => {
@@ -40,25 +50,7 @@ const iaChoice = (choice) => {
     }
 
     // image du choix
-    // setInterval()
     iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
-
-    // défilement des images aléatoires avant le choix
-    // let f = () => {
-    //     iaRandom = 0
-    //     iaRandom += 1
-    //     iaRandom.setAttribute(`<img src="img/${ia}.jpg" alt="" id="iaRandom">`)
-    //     if(iaRandom == 3) {
-    //         iaRandom.innerHTML = `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
-    //     }
-    // }
-    // window.setInterval('f()', 800)
-
-    // setInterval(function() {
-    //     iaRandom.innerHTML += `<img src="img/${ia}.jpg" alt="" id="iaRandom">`
-    // }, 1000);
-
-
 
     // afficher le vainqueur
     winner()
@@ -66,28 +58,71 @@ const iaChoice = (choice) => {
 
 // Déterminer le vainqueur
 const winner = () => {
+    round += 1
+
     if((player === "stone" && iaTxt === "scissors") || (player === "scissors" && iaTxt === "paper") || (player === "paper" && iaTxt === "stone")) {
-        // console.log("Vous avez gagné !") 
         result = "Vous avez gagné !"
-        // document.getElementById("border").style.border = "solid 3px red";
+        handlePlayerWin() 
     }else if((player === "scissors" && iaTxt === "stone") || (player === "paper" && iaTxt === "scissors") || (player === "stone" && iaTxt === "paper")) {
-        // console.log("L'IA a gagné")
         result = "Vous avez perdu !"
+        handleIaWin()
     }else if(player === iaTxt) {
-        // console.log("Match nul")
         result = "Match nul"
+        handleDraw()
     }
     // afficher le résultat
     gameResult.innerHTML = result
+    // afficher le score
+    updateScore()
+}
+
+// historique
+const createHistoryRound = (message) => {
+    if (empty) {
+      empty.remove()
+    }
+
+    gameHistory.innerHTML = gameHistory.innerHTML + `
+    <div class="round">
+      <h4>Round ${round}</h4>
+      <h5>${message}</h5>
+    <div>
+  `
 }
 
 // afficher le score
+const handlePlayerWin = () => {
+    playerScore += 1
+    createHistoryRound("Vous avez gagné")
+}
+  
+const handleIaWin = () => {
+    iaScore += 1
+    createHistoryRound("Vous avez perdu")
+}
+  
+const handleDraw = () => {
+    createHistoryRound("Match nul")
+}
 
+const updateScore = () => {
+    playerScoreDOM.innerHTML = playerScore
+    iaScoreDOM.innerHTML = iaScore
 
+    // scroll
+    // gameHistory.scrollTop +=20
 
-// const element = document.getElementById("demo");
-// setInterval(function() {
-// element.innerHTML += "Hello"
-// }, 1000);
+    if (playerScore === 3) {
+        gameAera.innerHTML = `
+          <h2>Vous avez gagné la partie !</h2>
+          <button class="game-buttons" onclick="location.reload()">Retry ?</button>
+        `
+    }
+    if (iaScore === 3) {
+        gameAera.innerHTML = `
+          <h2>L'IA a gagné la partie</h2>
+          <button class="game-buttons" onclick="location.reload()">Retry ?</button>
+        `
+    }
+}
 
-// const iaRandom = document.getElementById('iaRandom').getAttribute('src')

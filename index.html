@@ -13,10 +13,26 @@
         <!-- Scores -->
         <aside id="scores" class="scores">
             <h3>Scores</h3>
-            <p id="scoresDisplay"></p>
+            <div id="scoresDisplay" class="scoresDisplay">
+                <div>
+                    <h5>Joueur</h5>
+                    <h2 id="playerScore">0</h2>
+                </div>
+                <div>
+                    <h5>IA</h5>
+                    <h2 id="iaScore">0</h2>
+                </div>
+            </div> 
+        </aside>
+        <!-- history -->
+        <aside class="history">
+            <h3>Game history</h3>
+            <div class="gameHistory-container" id="gameHistory">
+                <p id="empty"></p>
+            </div>
         </aside>
         <!-- aire de jeu -->
-        <article class="gameArea">
+        <article class="gameArea" id="gameAera">
             <!-- section ia -->
             <section>
                 <h3>IA</h3>
@@ -43,7 +59,6 @@
             </section>
         </article>
     </main>
-
 
     <script src="js/index.js"></script>
 </body>

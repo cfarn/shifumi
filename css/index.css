@@ -83,8 +83,14 @@ button:focus {
     text-align: center;
 }
 
-.scores h3 {
+.scores h3, .history h3 {
     color: #fff;
+}
+
+.scoresDisplay {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #gameResult {
@@ -94,4 +100,19 @@ button:focus {
     /* color: #fff;
     background-color: grey;
     font-weight: 700; */
+}
+
+/* .gameHistory-container {
+    overflow-y: scroll;
+    padding-top: 1em;
+} */
+
+.history {
+    border: 5px solid #fff;
+    margin: 10px 0;
+    position: absolute;
+    left: 20px;
+    top: 15%;
+    width: 20%;
+    text-align: center;
 }
