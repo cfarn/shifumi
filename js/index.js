@@ -115,13 +115,13 @@ const updateScore = () => {
     if (playerScore === 3) {
         gameAera.innerHTML = `
           <h2>Vous avez gagné la partie !</h2>
-          <button class="game-buttons" onclick="location.reload()">Retry ?</button>
+          <button class="game-buttons" onclick="location.reload()">Rejouer ?</button>
         `
     }
     if (iaScore === 3) {
         gameAera.innerHTML = `
           <h2>L'IA a gagné la partie</h2>
-          <button class="game-buttons" onclick="location.reload()">Retry ?</button>
+          <button class="game-buttons" onclick="location.reload()">Rejouer ?</button>
         `
     }
 }
