@@ -85,7 +85,7 @@ const createHistoryRound = (message) => {
     gameHistory.innerHTML = gameHistory.innerHTML + `
     <div class="round">
       <h4>Round ${round}</h4>
-      <h5>${message}</h5>
+      <p>${message}</p>
     <div>
   `
 }
@@ -110,7 +110,7 @@ const updateScore = () => {
     iaScoreDOM.innerHTML = iaScore
 
     // scroll
-    // gameHistory.scrollTop +=20
+    gameHistory.scrollTop = 10000
 
     if (playerScore === 3) {
         gameAera.innerHTML = `

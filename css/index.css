@@ -94,18 +94,15 @@ button:focus {
 }
 
 #gameResult {
-    /* border: 3px solid grey; */
     margin: 20px 0;
     padding: 15px 30px;
-    /* color: #fff;
-    background-color: grey;
-    font-weight: 700; */
 }
 
-/* .gameHistory-container {
+.gameHistory-container {
     overflow-y: scroll;
+    max-height: 450px;
     padding-top: 1em;
-} */
+}
 
 .history {
     border: 5px solid #fff;
